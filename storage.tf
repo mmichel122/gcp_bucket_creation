@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "google" {
-  credentials = "${file("./creds/serviceaccount.json")}"
-  project     = var.project_id
-  region      = var.location
+  #credentials = "${file("./creds/serviceaccount.json")}"
+  project = var.project_id
+  region  = var.location
 }
 
 resource "google_storage_bucket" "web-store" {
