@@ -37,7 +37,7 @@ resource "google_storage_bucket_access_control" "public_rule" {
 
 resource "google_storage_default_object_acl" "object-acl" {
   bucket = google_storage_bucket.web-store.name
-  object = google_storage_bucket_object.files.output_name}
+  object = google_storage_bucket_object.files.output_name
   role_entity = [
     "READER:allUsers",
   ]
