@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "google" {
-  #credentials = "${file("./creds/serviceaccount.json")}"
-  project = var.project_id
-  region  = var.location
+  credentials = "${file("./creds/serviceaccount.json")}"
+  project     = var.project_id
+  region      = var.location
 }
 
 resource "google_storage_bucket" "web-store" {
@@ -35,7 +35,7 @@ resource "google_storage_bucket_access_control" "public_rule" {
   entity = "allUsers"
 }
 
-resource "google_storage_default_object_acl" "object-acl" {
+resource "google_storage_object_acl" "object-acl" {
   bucket = google_storage_bucket.web-store.name
   object = google_storage_bucket_object.files.output_name
   role_entity = [
